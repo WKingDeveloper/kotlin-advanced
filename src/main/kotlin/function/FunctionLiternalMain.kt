@@ -48,6 +48,7 @@ fun iterate(numbers: List<Int>, exec: (Int) -> Unit) {
 
 
 fun calculate(num1: Int, num2: Int, oper: Operator) = oper.calcFun(num1, num2)
+fun calculateOperator(num1: Int, num2: Int, oper: Operator): Int = oper(num1, num2)
 
 enum class Operator(
     private val oper: Char,
@@ -61,5 +62,9 @@ enum class Operator(
             IllegalArgumentException("0으로 나눌 수 없습니다.")
         }
         a / b
-    })
+    });
+
+    operator fun invoke(num1: Int, num2: Int): Int {
+        return calcFun(num1, num2)
+    }
 }
