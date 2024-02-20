@@ -10,3 +10,5 @@ package reflection
 @Shape(texts = ["A", "B"], Shape::class)
 class Annotation(@Circle val name: String) {
 }
+
+annotation class Bean
